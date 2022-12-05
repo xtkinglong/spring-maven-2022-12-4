@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.zixi.bean.Person">
+        <property name="no" value="9527"></property>
+        <property name="gender" value="男"></property>
+        <property name="pName" value="涛哥儿 "></property>
+    </bean>
+
+    <bean id="person1" class="com.zixi.bean.Person">
+        <constructor-arg name="no" value="7789"></constructor-arg>
+        <constructor-arg name="pName" value="rose"></constructor-arg>
+        <constructor-arg name="gender" value="nv"></constructor-arg>
+    </bean>
+
+
+    <bean id="person2" class="com.zixi.bean.Person">
+        <property name="no" value="9527"></property>
+        <property name="gender" value="男"></property>
+        <property name="pName" value="涛哥儿 "></property>
+
+        <property name="address" ref="address">
+        </property>
+
+        <property name="hobbies">
+            <array>
+                <value>girl</value>
+                <value>read</value>
+                <value>fitness</value>
+            </array>
+        </property>
+
+        <property name="lists">
+            <list>
+                <value>中国</value>
+                <value>美国</value>
+                <value>英国</value>
+            </list>
+        </property>
+
+        <property name="maps">
+            <map>
+                <entry key="1" value="a"></entry>
+                <entry key="2">
+                    <bean class="com.zixi.bean.Address">
+                        <constructor-arg name="province" value="陕西"></constructor-arg>
+                        <constructor-arg name="city" value="西安"></constructor-arg>
+                        <constructor-arg name="town" value="未央"></constructor-arg>
+                    </bean>
+                </entry>
+                <entry key="3">
+                    <list>
+                        <value>tt</value>
+                        <value>dd</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="a1"> b1</prop>
+                <prop key="a2">b2</prop>
+            </props>
+        </property>
+
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <value>2</value>
+            </set>
+        </property>
+
+
+    </bean>
+
+
+    <bean id="address" class="com.zixi.bean.Address">
+        <constructor-arg name="province" value="shannxi"></constructor-arg>
+        <constructor-arg name="city" value="xi`an"></constructor-arg>
+        <constructor-arg name="town" value="weiyang"></constructor-arg>
+    </bean>
+
+
+    <bean id="person3" class="com.zixi.bean.Person">
+        <property name="no" value="19"></property>
+        <property name="pName" value="bruce"></property>
+        <property name="gender" value="male"></property>
+    </bean>
+
+    <bean id="person4" class="com.zixi.bean.Person" parent="person3">
+        <property name="lists">
+            <list>
+                <value>1马马</value>
+                <value>2马马</value>
+            </list>
+        </property>
+    </bean>
+</beans>
